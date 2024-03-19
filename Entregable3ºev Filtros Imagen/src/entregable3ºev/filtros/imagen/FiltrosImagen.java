@@ -6,6 +6,8 @@ package entregable3ºev.filtros.imagen;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +22,11 @@ public class FiltrosImagen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        menuFiltros();
+        try {
+            menuFiltros();
+        } catch (NotFileException ex) {
+            ex.getMessage();
+        }
        
     }
 
@@ -28,11 +34,17 @@ public class FiltrosImagen {
         System.out.print("Ingresa la ruta del tu archivo:");
          File imagen = new File(entradaTerminal.nextLine());
          if (imagen.isFile()) {
-             
+             leerArchivo(imagen);
             
-        } else throw new NotFileException("No es un archivo");
+        } else throw new NotFileException("No es un archivo, revisa la ruta porfavor pajarraco.");
          
         
+        
+    }
+
+    private static void leerArchivo(File imagen) {
+                File f = new File("./DAW.txt");
+        Scanner scFile = null;
         
     }
     
