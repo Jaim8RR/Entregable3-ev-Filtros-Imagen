@@ -6,8 +6,7 @@ package entregable3ºev.filtros.imagen;
 
 import java.io.File;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -45,6 +44,8 @@ public class FiltrosImagen {
     private static void leerArchivo(File imagen) {
                 File f = new File("./DAW.txt");
         Scanner scFile = null;
+        //aqui un try catch whit resources
+
         
     }
     
