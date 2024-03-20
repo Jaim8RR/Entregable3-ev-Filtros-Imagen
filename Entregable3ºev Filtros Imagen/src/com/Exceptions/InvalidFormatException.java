@@ -2,20 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entregable3ºev.filtros.imagen;
+package com.Exceptions;
 
 /**
  *
  * @author dev
  */
-public class NotFileException extends Exception {
-
-    public NotFileException(String message) {
+public class InvalidFormatException extends Exception{
+     public InvalidFormatException(String message) {
         super(message);
     }
-
-  
-    
-    
-    
 }

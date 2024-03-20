@@ -8,7 +8,7 @@ package entregable3ºev.filtros.imagen;
  *
  * @author dev
  */
-public class imagen {
+public class Imagen {
 
    private String formato = "P2";
      private String comentario;
@@ -19,7 +19,7 @@ public class imagen {
 
   
 
-    public imagen(String formato, String comentario, int columnas, int filas, int valorMaxColor, int[][] pixeles) {
+    public Imagen(String formato, String comentario, int columnas, int filas, int valorMaxColor, int[][] pixeles) {
         this.formato = formato;
         this.comentario = comentario;
         this.columnas = columnas;
@@ -51,7 +51,7 @@ public class imagen {
         this.columnas = this.filas;
         this.filas = aux;
     }
-    public void voltearPixelesHorizontal() {
+    public void voltearPixelesVerticalmente() {
         int[][] pixelesVolteados = new int[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
@@ -60,7 +60,7 @@ public class imagen {
         }
         this.pixeles = pixelesVolteados;
     }
-    public void voltearPixelesVertical() {
+    public void voltearPixelesHorizontalmente() {
         int[][] pixelesVolteados = new int[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
