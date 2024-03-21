@@ -42,8 +42,8 @@ public class Imagen {
     }
    public void voltearPixelesNoventaGradosDer() {
         int[][] pixelesVolteados = new int[this.columnas][this.filas];
-        for (int i = 0; i < this.columnas; i++) {
-            for (int j = 0; j < this.filas; j++) {
+        for (int i = 0; i < this.columnas; i++) {//columnas
+            for (int j = 0; j < this.filas; j++) {//filas
                 pixelesVolteados[i][j] = this.pixeles[this.filas - j - 1][i];
             }
         }

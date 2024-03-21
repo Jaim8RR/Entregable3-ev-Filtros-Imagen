@@ -8,7 +8,6 @@ import com.Exceptions.InvalidFormatException;
 import java.io.File;
 import java.util.Scanner;
 
-
 /**
  *
  * @author dev
@@ -33,18 +32,18 @@ public class FiltrosImagen {
     }
 
     private static void cargarArchivo() throws InvalidFormatException {
-        System.out.print("Ingresa la ruta del tu archivo:");
-        File imagen = new File(entradaTerminal.nextLine());
-        if (imagen.isFile()) {
-            leerArchivo(imagen);
+        boolean cargaCorrecta = false;
+        do {
 
-        } else {
-            
-        }
+            System.out.print("Ingresa la ruta del tu archivo:");
+            File pgm = new File(entradaTerminal.nextLine());
 
+            cargaCorrecta=leerArchivo(pgm);
+
+        } while (cargaCorrecta);
     }
 
-    private static void leerArchivo(File imagen) throws InvalidFormatException {
+    private static boolean leerArchivo(File imagen) throws InvalidFormatException {
         String formato, comentario;
         int columnas, filas, valorMaxColor;
         formato = scFile.nextLine();
@@ -61,7 +60,9 @@ public class FiltrosImagen {
                 }
             }
             Imagen img = new Imagen(formato, comentario, columnas, filas, valorMaxColor, pixeles);
-        } else throw new InvalidFormatException("No es un archivo, revisa la ruta porfavor pajarraco.");
+        } else {
+            throw new InvalidFormatException("No es un archivo, revisa la ruta porfavor pajarraco.");
+        }
 
     }
 
