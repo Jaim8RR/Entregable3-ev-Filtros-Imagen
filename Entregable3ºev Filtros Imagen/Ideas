@@ -1,2 +1,6 @@
 1º- archivo config
+cosas-> como hacer negativo BlancoMax - valordelPixel
+                ej: 255-0=255
+                    255-100=155
+                    255-255=0
 

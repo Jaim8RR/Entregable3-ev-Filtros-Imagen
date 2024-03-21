@@ -21,9 +21,11 @@ public class testImagen {
 //        
 String formato ="F2";
 String comentario="fdf";
-int filas =4;
-int columnas =5;
+int filas =(int)(Math.random()*10+1);
+int columnas =(int)(Math.random()*10+1);
 int valorMaxColor=20;
+        System.out.println("filas: "+filas);
+        System.out.println("columnas: "+columnas);
 
 
         
@@ -31,7 +33,7 @@ int valorMaxColor=20;
         int pixeles[][] = new int[filas][columnas];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                System.out.println("introduce el valor de la fila " + i + " y la columna " + j);
+               // System.out.println("introduce el valor de la fila " + i + " y la columna " + j);
                 pixeles[i][j] = (int)(Math.random()*10);
             }
         }

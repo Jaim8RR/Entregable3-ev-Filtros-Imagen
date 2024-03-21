@@ -5,7 +5,6 @@
 package entregable3ºev.filtros.imagen;
 
 import com.Exceptions.InvalidFormatException;
-import com.Exceptions.NotFileException;
 import java.io.File;
 import java.util.Scanner;
 
@@ -25,24 +24,22 @@ public class FiltrosImagen {
      */
     public static void main(String[] args) {
         try {
-            recibirArchivo();
+            cargarArchivo();
             menuOpcionesImagen();
-        } catch (NotFileException ex) {
-            ex.getMessage();
         } catch (InvalidFormatException ex) {
             ex.getMessage();
         }
 
     }
 
-    private static void recibirArchivo() throws NotFileException, InvalidFormatException {
+    private static void cargarArchivo() throws InvalidFormatException {
         System.out.print("Ingresa la ruta del tu archivo:");
         File imagen = new File(entradaTerminal.nextLine());
         if (imagen.isFile()) {
             leerArchivo(imagen);
 
         } else {
-            throw new NotFileException("No es un archivo, revisa la ruta porfavor pajarraco.");
+            
         }
 
     }

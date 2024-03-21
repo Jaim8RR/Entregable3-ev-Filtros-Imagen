@@ -3,19 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entregable3ºev.filtros.imagen;
-
+/*TODO:
+*girarDerecha-izquierda DONE
+*FlipVertical-horizontal DONE
+*Filtro caja
+*Filtro negativo
+*/
 /**
  *
  * @author dev
  */
 public class Imagen {
 
-   private String formato = "P2";
+   private String formato;//deberia ser siempre este valor "P2"
      private String comentario;
      private int columnas;
      private int filas;
-     private int valorMaxColor;
+     private final int BLANCO_ABSOLUTO=255;
      private int pixeles[][];
+     private double valorMaxColor;
 
   
 
@@ -24,8 +30,15 @@ public class Imagen {
         this.comentario = comentario;
         this.columnas = columnas;
         this.filas = filas;
-        this.valorMaxColor = valorMaxColor;
+        this.valorMaxColor= valorMaxColor;
         this.pixeles = pixeles;
+        if (valorMaxColor!=255) {
+            System.out.println("Muestro antes de generar valorMaxColor: "+valorMaxColor);
+            mostrarPixeles();
+            normalizarColores();
+            System.out.println("-------------");
+                    
+        }
     }
    public void voltearPixelesNoventaGradosDer() {
         int[][] pixelesVolteados = new int[this.columnas][this.filas];
@@ -79,6 +92,13 @@ public class Imagen {
             System.out.println();
         }
     }
+    public void invertirColores(){
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                this.pixeles[i][j]=BLANCO_ABSOLUTO-this.pixeles[i][j];
+            }
+        }
+    }
 
     public String getFormato() {
         return formato;
@@ -113,12 +133,10 @@ public class Imagen {
     }
 
     public int getValorMaxColor() {
-        return valorMaxColor;
+        return BLANCO_ABSOLUTO;
     }
 
-    public void setValorMaxColor(int valorMaxColor) {
-        this.valorMaxColor = valorMaxColor;
-    }
+    
 
     public int[][] getPixeles() {
         return pixeles;
@@ -126,6 +144,14 @@ public class Imagen {
 
     public void setPixeles(int[][] pixeles) {
         this.pixeles = pixeles;
+    }
+
+    private void normalizarColores() {
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                this.pixeles[i][j]=(int)(this.pixeles[i][j]*BLANCO_ABSOLUTO/valorMaxColor);
+            }
+        }
     }
 
  
