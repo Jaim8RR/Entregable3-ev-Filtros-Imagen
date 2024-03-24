@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entregable3ºev.filtros.imagen;
+import java.io.File;
+import java.util.Scanner;
 /*TODO:
 *girarDerecha-izquierda DONE
 *FlipVertical-horizontal DONE
@@ -22,9 +24,29 @@ public class Imagen {
      private final int BLANCO_ABSOLUTO=255;
      private int pixeles[][];
      private double valorMaxColor;
+     //in the next line i want a constructor which will read a file where the atributes are at.
+    public Imagen(String rutaArchivo) {
+        Scanner scFile = null;
+        File fr = new File(rutaArchivo);
+        this.formato = scFile.nextLine();
+        this.comentario = scFile.nextLine();
+        this.columnas = scFile.nextInt();
+        this.filas = scFile.nextInt();
+        this.valorMaxColor = scFile.nextInt();
+        this.pixeles = new int[this.filas][this.columnas];
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                this.pixeles[i][j] = scFile.nextInt();
+            }
+        }
+        if (this.valorMaxColor!=255) {
+            normalizarColores();
+            
+        }
+    }
 
   
-
+//este constructor de abajo es para probar en testImagen
     public Imagen(String formato, String comentario, int columnas, int filas, int valorMaxColor, int[][] pixeles) {
         this.formato = formato;
         this.comentario = comentario;

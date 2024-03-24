@@ -21,8 +21,8 @@ public class testImagen {
 //        
 String formato ="F2";
 String comentario="fdf";
-int filas =(int)(Math.random()*10+1);
-int columnas =(int)(Math.random()*10+1);
+int filas =(int)(Math.random()*5+1);
+int columnas =(int)(Math.random()*5+1);
 int valorMaxColor=20;
         System.out.println("filas: "+filas);
         System.out.println("columnas: "+columnas);

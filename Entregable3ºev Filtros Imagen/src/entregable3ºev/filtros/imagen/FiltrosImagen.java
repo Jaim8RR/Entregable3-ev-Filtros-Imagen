@@ -43,7 +43,7 @@ public class FiltrosImagen {
         } while (cargaCorrecta);
     }
 
-    private static boolean leerArchivo(File imagen) throws InvalidFormatException {
+    private static boolean leerArchivo(File imagen) {
         String formato, comentario;
         int columnas, filas, valorMaxColor;
         formato = scFile.nextLine();
@@ -60,9 +60,8 @@ public class FiltrosImagen {
                 }
             }
             Imagen img = new Imagen(formato, comentario, columnas, filas, valorMaxColor, pixeles);
-        } else {
-            throw new InvalidFormatException("No es un archivo, revisa la ruta porfavor pajarraco.");
-        }
+          }
+          return true;
 
     }
 
