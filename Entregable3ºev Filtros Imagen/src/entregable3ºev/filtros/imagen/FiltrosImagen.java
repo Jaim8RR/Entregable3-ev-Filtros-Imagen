@@ -36,34 +36,14 @@ public class FiltrosImagen {
         do {
 
             System.out.print("Ingresa la ruta del tu archivo:");
-            File pgm = new File(entradaTerminal.nextLine());
-
-            cargaCorrecta=leerArchivo(pgm);
+            Imagen pgm = new Imagen(entradaTerminal.nextLine());
+            // File pgm = new File(entradaTerminal.nextLine());
+            cargaCorrecta=true;
 
         } while (cargaCorrecta);
     }
 
-    private static boolean leerArchivo(File imagen) {
-        String formato, comentario;
-        int columnas, filas, valorMaxColor;
-        formato = scFile.nextLine();
-        if (formato.equals("F2")) {
-            comentario = scFile.nextLine();
-            columnas = scFile.nextInt();
-            filas = scFile.nextInt();
-            valorMaxColor = scFile.nextInt();
-            int pixeles[][] = new int[filas][columnas];
-            for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                    System.out.println("introduce el valor de la fila " + i + " y la columna " + j);
-                    pixeles[i][j] = scFile.nextInt();
-                }
-            }
-            Imagen img = new Imagen(formato, comentario, columnas, filas, valorMaxColor, pixeles);
-          }
-          return true;
-
-    }
+    
 
     private static void menuOpcionesImagen() {
 

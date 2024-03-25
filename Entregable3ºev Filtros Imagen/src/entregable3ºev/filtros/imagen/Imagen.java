@@ -122,6 +122,26 @@ public class Imagen {
         }
     }
 
+    public void filtroCaja(){
+        int[][] pixelesFiltrados = new int[this.filas][this.columnas];
+        for (int i = 0; i < this.filas; i++) {//estos dos blucles for es para ir pixel por pixel
+            for (int j = 0; j < this.columnas; j++) {
+                int sum = 0;//sum es la suma de los pixeles que estan alrededor del pixel actual
+                int count = 0;//count es el numero de pixeles que estan alrededor del pixel actual
+                for (int x = i - 1; x <= i + 1; x++) {//estos dos blucles for es para ir pixel por pixel alrededor del pixel actual
+                    for (int y = j - 1; y <= j + 1; y++) {//aqui le quitamos uno  a x e y ya que las arrays empiezan en 0
+                        if (x >= 0 && x < this.filas && y >= 0 && y < this.columnas) {//esto es para que no se salga de los limites de la imagen por eso se pone x<this.filas y y<this.columnas y x>=0 y y>=0(cubriendo  el maximo y los minimos)
+                            sum += this.pixeles[x][y];//sumamos el pixel actual al sum
+                            count++;//aumentamos el numero de pixeles
+                        }
+                    }
+                }
+                pixelesFiltrados[i][j] = sum / count;//y aqui guardamos la media de los pixeles alrededor del pixel actual
+            }
+        }
+        this.pixeles = pixelesFiltrados;
+    }
+
     public String getFormato() {
         return formato;
     }

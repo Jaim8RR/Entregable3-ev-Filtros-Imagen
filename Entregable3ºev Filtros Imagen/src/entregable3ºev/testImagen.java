@@ -7,7 +7,7 @@ import entregable3ºev.filtros.imagen.Imagen;
 public class testImagen {
     public static void main(String[] args) {
         // scaner que nos dirá cada valor por terminal de la Imagen
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
 //        System.out.println("introduce el foramato");
 //        String formato = sc.nextLine();
 //        System.out.println("introduce el comentario");
@@ -21,8 +21,8 @@ public class testImagen {
 //        
 String formato ="F2";
 String comentario="fdf";
-int filas =(int)(Math.random()*5+1);
-int columnas =(int)(Math.random()*5+1);
+int filas =3;//(int)(Math.random()*5+1);
+int columnas =3;//(int)(Math.random()*5+1);
 int valorMaxColor=20;
         System.out.println("filas: "+filas);
         System.out.println("columnas: "+columnas);
@@ -56,6 +56,12 @@ int valorMaxColor=20;
         img.voltearPixelesHorizontalmente();
         img.mostrarPixeles();
          System.out.println("-------------------------------");
+        System.out.println("--Probamos el filtro caja------");
+        img.filtroCaja();
+        img.mostrarPixeles();
+        System.out.println("-----------Lo probamos de nuevo-------------------");
+        img.filtroCaja();
+        img.mostrarPixeles();
 
     }
 
