@@ -30,7 +30,7 @@ int valorMaxColor=20;
 
         
 
-        int pixeles[][] = new int[filas][columnas];
+        double pixeles[][] = new double[filas][columnas];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                // System.out.println("introduce el valor de la fila " + i + " y la columna " + j);

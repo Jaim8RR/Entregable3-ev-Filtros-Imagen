@@ -22,16 +22,16 @@ public class FiltrosImagen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
+        
             cargarArchivo();
             menuOpcionesImagen();
-        } catch (InvalidFormatException ex) {
-            ex.getMessage();
+        
+       
         }
 
-    }
+   
 
-    private static void cargarArchivo() throws InvalidFormatException {
+    private static void cargarArchivo() {
         boolean cargaCorrecta = false;
         do {
 

@@ -22,7 +22,7 @@ public class Imagen {
      private int columnas;
      private int filas;
      private final int BLANCO_ABSOLUTO=255;
-     private int pixeles[][];
+     private double pixeles[][];
      private double valorMaxColor;
      //in the next line i want a constructor which will read a file where the atributes are at.
     public Imagen(String rutaArchivo) {
@@ -33,7 +33,7 @@ public class Imagen {
         this.columnas = scFile.nextInt();
         this.filas = scFile.nextInt();
         this.valorMaxColor = scFile.nextInt();
-        this.pixeles = new int[this.filas][this.columnas];
+        this.pixeles = new double[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 this.pixeles[i][j] = scFile.nextInt();
@@ -47,7 +47,7 @@ public class Imagen {
 
   
 //este constructor de abajo es para probar en testImagen
-    public Imagen(String formato, String comentario, int columnas, int filas, int valorMaxColor, int[][] pixeles) {
+    public Imagen(String formato, String comentario, int columnas, int filas, int valorMaxColor, double[][] pixeles) {
         this.formato = formato;
         this.comentario = comentario;
         this.columnas = columnas;
@@ -63,7 +63,7 @@ public class Imagen {
         }
     }
    public void voltearPixelesNoventaGradosDer() {
-        int[][] pixelesVolteados = new int[this.columnas][this.filas];
+        double[][] pixelesVolteados = new double[this.columnas][this.filas];
         for (int i = 0; i < this.columnas; i++) {//columnas
             for (int j = 0; j < this.filas; j++) {//filas
                 pixelesVolteados[i][j] = this.pixeles[this.filas - j - 1][i];
@@ -75,7 +75,7 @@ public class Imagen {
         this.filas = aux;
     }
     public void voltearPixelesNoventaGradosIzq() {
-        int[][] pixelesVolteados = new int[this.columnas][this.filas];
+        double[][] pixelesVolteados = new double[this.columnas][this.filas];
         for (int i = 0; i < this.columnas; i++) {
             for (int j = 0; j < this.filas; j++) {
                 pixelesVolteados[i][j] = this.pixeles[j][this.columnas - i - 1];
@@ -87,7 +87,7 @@ public class Imagen {
         this.filas = aux;
     }
     public void voltearPixelesVerticalmente() {
-        int[][] pixelesVolteados = new int[this.filas][this.columnas];
+        double[][] pixelesVolteados = new double[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 pixelesVolteados[i][j] = this.pixeles[i][this.columnas - j - 1];
@@ -96,7 +96,7 @@ public class Imagen {
         this.pixeles = pixelesVolteados;
     }
     public void voltearPixelesHorizontalmente() {
-        int[][] pixelesVolteados = new int[this.filas][this.columnas];
+        double[][] pixelesVolteados = new double[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 pixelesVolteados[i][j] = this.pixeles[this.filas - i - 1][j];
@@ -123,7 +123,7 @@ public class Imagen {
     }
 
     public void filtroCaja(){
-        int[][] pixelesFiltrados = new int[this.filas][this.columnas];
+        double[][] pixelesFiltrados = new double[this.filas][this.columnas];
         for (int i = 0; i < this.filas; i++) {//estos dos blucles for es para ir pixel por pixel
             for (int j = 0; j < this.columnas; j++) {
                 int sum = 0;//sum es la suma de los pixeles que estan alrededor del pixel actual
@@ -180,11 +180,11 @@ public class Imagen {
 
     
 
-    public int[][] getPixeles() {
+    public double[][] getPixeles() {
         return pixeles;
     }
 
-    public void setPixeles(int[][] pixeles) {
+    public void setPixeles(double[][] pixeles) {
         this.pixeles = pixeles;
     }
 
