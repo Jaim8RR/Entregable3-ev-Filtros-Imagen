@@ -4,13 +4,11 @@
  */
 package entregable3ºev.filtros.imagen;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
-/*TODO:
-*girarDerecha-izquierda DONE
-*FlipVertical-horizontal DONE
-*Filtro caja
-*Filtro negativo
-*/
+
 /**
  *
  * @author dev
@@ -24,10 +22,11 @@ public class Imagen {
      private final int BLANCO_ABSOLUTO=255;
      private double pixeles[][];
      private double valorMaxColor;
-     //in the next line i want a constructor which will read a file where the atributes are at.
-    public Imagen(String rutaArchivo) {
-        Scanner scFile = null;
-        File fr = new File(rutaArchivo);
+     
+    public Imagen(String rutaArchivo) throws FileNotFoundException {
+        
+        File imagen = new File(rutaArchivo);
+        Scanner scFile = new Scanner(imagen);
         this.formato = scFile.nextLine();
         this.comentario = scFile.nextLine();
         this.columnas = scFile.nextInt();
@@ -43,6 +42,23 @@ public class Imagen {
             normalizarColores();
             
         }
+        scFile.close();
+        
+    }
+    public void guardarPGM(String rutaNombre) throws IOException{
+      FileWriter fw = new FileWriter(rutaNombre); 
+            fw.write(this.getFormato()+"\n");
+            fw.write(this.comentario+"\n");
+            fw.write(this.columnas+ " ");
+            fw.write(this.filas+"\n");
+            fw.write(this.BLANCO_ABSOLUTO+"\n");//puesto que esta normalizado será 255
+            for (int i = 0; i < this.filas; i++) {
+                for (int j = 0; j < this.columnas; j++) {
+                    fw.write((int)this.pixeles[i][j]+"\n");
+                }
+               
+            }
+            fw.close();
     }
 
   
