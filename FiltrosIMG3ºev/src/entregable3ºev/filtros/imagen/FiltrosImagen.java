@@ -8,21 +8,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**Entregable3ºev Filtros Imagen\img\imagen.pgm
+/**
+ * Entregable3ºev Filtros Imagen\img\imagen.pgm
  *
  * @author dev
  */
 public class FiltrosImagen {
 
     static Scanner entradaTerminal = new Scanner(System.in);// esto es para leer la entrada (terminal)
-    static Imagen pgm = null;
+    static Imagen pgm;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-        cargarArchivo();// este metodo trata de leer un archivo, la ruta la recibe por terminal
+        cargarArchivo();
         menuOpcionesImagen();
 
     }
@@ -54,13 +55,13 @@ public class FiltrosImagen {
     private static void menuOpcionesImagen() {
         String opcionFiltro, rutaGuardarImagen;
         do {// Menu que indicará las diferentes opciones que tiene nuestra clase imagen
-            System.out.println("Elige qué filtro deseas aplicar a la imagen");
+            System.out.println("Elige qué filtro deseas aplicar a la imagen:");
             System.out.println("1.- Filtro negativo");
             System.out.println("2.- Girar imagen derecha");
             System.out.println("3.- Girar imagen izquierda");
             System.out.println("4.- Voltear imagen verticalmente");
             System.out.println("5.- Voltear imagen horizontalmente");
-            System.out.println("6.-  Filtro caja");
+            System.out.println("6.- Filtro caja");
             System.out.println("7.- Guardar imagen");
             System.out.println("8.- Salir");
             opcionFiltro = entradaTerminal.nextLine();
@@ -70,7 +71,6 @@ public class FiltrosImagen {
                     break;
                 case "2":
                     pgm.voltearPixelesNoventaGradosDer();
-                    ;
                     break;
                 case "3":
                     pgm.voltearPixelesNoventaGradosIzq();
@@ -85,7 +85,7 @@ public class FiltrosImagen {
                     pgm.filtroCaja();
                     break;
                 case "7":
-                    System.out.println("Introduce la ruta donde guardar la imagen");
+                    System.out.println("Introduce la ruta donde guardar la imagen: ");
                     rutaGuardarImagen = entradaTerminal.nextLine();
                     try {
                         pgm.guardarPGM(rutaGuardarImagen);
