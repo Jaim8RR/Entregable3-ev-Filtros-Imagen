@@ -22,9 +22,32 @@ public class FiltrosImagen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String opcion = "S";
 
         cargarArchivo();
-        menuOpcionesImagen();
+
+        do {// Menu que indicará las diferentes opciones que tiene nuestra clase imagen
+          
+
+            
+            switch (opcion) {
+
+                case "S":
+
+                    menuOpcionesImagen();
+
+                    break;
+
+                case "N":
+                    System.out.println("Adios!!");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida");
+            }
+             System.out.println("Quieres modificar otra foto? S/N");
+             opcion = entradaTerminal.nextLine();
+        } while (!opcion.equals("N"));
 
     }
 
@@ -54,6 +77,7 @@ public class FiltrosImagen {
 
     private static void menuOpcionesImagen() {
         String opcionFiltro, rutaGuardarImagen;
+        int aplicacionesFiltro;
         do {// Menu que indicará las diferentes opciones que tiene nuestra clase imagen
             System.out.println("Elige qué filtro deseas aplicar a la imagen:");
             System.out.println("1.- Filtro negativo");
@@ -82,7 +106,9 @@ public class FiltrosImagen {
                     pgm.voltearPixelesHorizontalmente();
                     break;
                 case "6":
-                    pgm.filtroCaja();
+                    System.out.println("Cuantas veces quieres aplicar el filtro?");
+                    aplicacionesFiltro = Integer.parseInt(entradaTerminal.nextLine());
+                    pgm.filtroCaja(aplicacionesFiltro);
                     break;
                 case "7":
                     System.out.println("Introduce la ruta donde guardar la imagen: ");
@@ -95,7 +121,6 @@ public class FiltrosImagen {
                     }
                     break;
                 case "8":
-                    System.out.println("Adios!");
                     break;
 
                 default:
